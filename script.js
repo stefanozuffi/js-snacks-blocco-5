@@ -1,6 +1,10 @@
 const names = ['Edoardo', 'Simone', 'Francesco'];
 
 // Stampa in console tutti i nomi
+names.forEach(name => {
+    console.log(name)
+});
+
 
 
 const people = [
@@ -10,11 +14,20 @@ const people = [
 ];
 
 // Stampa in console tutti i nomi
+people.forEach(person => {
+    console.log(person.name)
+});
+
 
 
 const numbers = [2, 8, 4, 7, 2, 87];
 
 // Crea un nuovo array in cui tutti i numeri siano incrementati di 1
+const plus_one = numbers.map(number => {
+    return number + 1
+});
+console.log(plus_one)
+
 
 
 const posts = [
@@ -25,12 +38,21 @@ const posts = [
 ]
 
 // Crea un nuovo array coi nomi di tutti gli autori
+const authors = posts.map(post => {
+    return post.author
+})
+console.log(authors)
 
 
 
 const nums = [2, 8, 4, 7, 12, 87];
 
 // Crea un array a partire dall'array nums, che abbia solo i numeri pari
+const even = nums.filter(number => {
+   return number % 2 === 0  
+})
+console.log(even)
+
 
 
 const pencils = [
@@ -47,6 +69,29 @@ const pencils = [
 ];
 
 // A partire dall'array fornito, crea due array. Uno con le matite lunghe almeno 15cm. L'altro con le restanti.
+const tall_pencils = pencils.filter(pencil => {
+    return pencil.sizeInCm >= 15
+}) 
+console.log(tall_pencils)
+
+const short_pencils = pencils.filter(pencil => {
+    return pencil.sizeInCm < 15
+}) 
+console.log(short_pencils)
+
+// Oppure: 
+let t_pens = []
+let s_pens = []
+pencils.forEach(pencil => {
+    if (pencil.sizeInCm >= 15) {
+        t_pens.push(pencil)
+    }
+    else {
+        s_pens.push(pencil)
+    }
+})
+console.log(t_pens)
+console.log(s_pens)
 
 
 
@@ -72,6 +117,9 @@ const students = [
 ];
 
 // Recupera i dati dello studente con id 2
+const second = students.find(student => student.id === 2)
+console.log(second)
+
 
 
 const students_2 = [
@@ -96,3 +144,6 @@ const students_2 = [
 ];
 
 // Recuperare la classe dello studente Marco Lanci
+const Marco = students_2.find(student => student.name === 'Marco Lanci')
+const classe_Marco = Marco.classroom
+console.log(classe_Marco)
